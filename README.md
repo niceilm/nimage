@@ -40,7 +40,7 @@ listen 80;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                 proxy_set_header Host $http_host;
                 proxy_set_header X-NginX-Proxy true;
-                proxy_pass http://127.0.0.1:3006;
+                proxy_pass http://127.0.0.1:3007;
                 proxy_redirect off;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
@@ -67,7 +67,7 @@ name=file
 name=file
 
 // returns
-[{"url":"http://local.i.niceilm.net/dn/RAma6DleAlw9PGB2","width":647,"height":1145,"size":128354,"type":"image/png","hashedId":"RAma6DleAlw9PGB2"},{"url":"http://local.i.niceilm.net/dn/pqmvQDbOByoVE0M2","width":645,"height":1144,"size":573061,"type":"image/png","hashedId":"pqmvQDbOByoVE0M2"}]
+[{"url":"http://i.niceilm.net/dn/RAma6DleAlw9PGB2","width":647,"height":1145,"size":128354,"type":"image/png","hashedId":"RAma6DleAlw9PGB2"},{"url":"http://i.niceilm.net/dn/pqmvQDbOByoVE0M2","width":645,"height":1144,"size":573061,"type":"image/png","hashedId":"pqmvQDbOByoVE0M2"}]
 
 ```
 
@@ -86,7 +86,7 @@ name=file
 {"url":["http://dimg.donga.com/wps/SPORTS/IMAGE/2010/05/19/24690964.4.jpg", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS-DF9b7N3TG5dEZKjW7UUValVA1wV5c5dz_FK67cjz4w6G-55dVw"]}
 
 // returns
-[{"url":"http://local.i.niceilm.net/dn/2x7GZMlgRbBQJvRK","width":398,"height":499,"size":93682,"type":"image/jpeg","hashedId":"2x7GZMlgRbBQJvRK"},{"url":"http://local.i.niceilm.net/dn/ZrxGM43GxyYo8X0B","width":284,"height":177,"size":8317,"type":"image/jpeg","hashedId":"ZrxGM43GxyYo8X0B"}]
+[{"url":"http://i.niceilm.net/dn/Vgn3QYRleDvrZq4k","width":398,"height":499,"size":93682,"type":"image/jpeg","hashedId":"Vgn3QYRleDvrZq4k"},{"url":"http://i.niceilm.net/dn/OXMkrNBmXDgJ7m8l","width":284,"height":177,"size":8317,"type":"image/jpeg","hashedId":"OXMkrNBmXDgJ7m8l"}]
 ```
 
 ## crop
