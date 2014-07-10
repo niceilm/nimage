@@ -18,7 +18,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(require('serve-static')(path.join(__dirname, '/public/assets')));
 app.use(require('morgan')(config.log.morgan));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(require('cookie-parser')());
 app.use(require('cors')({
   'origin': true,
@@ -31,9 +33,9 @@ app.use(require('cors')({
 app.use('/up', require('./routes/upload'));
 app.use('/dn', require('./routes/download'));
 
-//app.use('/*', function(req, res) {
-//  res.render('index');
-//});
+app.use('/', function(req, res) {
+  res.render('index');
+});
 
 /// error handlers
 if(app.get('env') === 'development') {

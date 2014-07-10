@@ -2,6 +2,15 @@
 {{/contentFor}}
 {{#contentFor "pageScripts"}}
 {{/contentFor}}
-<!--<div>-->
-  nimage
-<!--</div>-->
+
+<h1>파일 업로드 </h1>
+<form action="/up" method="post" enctype="multipart/form-data">
+  <input type="file" name="file">
+  <button type="submit">upload</button>
+</form>
+
+<h1>URL 업로드 </h1>
+<form action="/up/url" method="post">
+  <input type="text" name="url">
+  <button type="submit">upload</button>
+</form>
