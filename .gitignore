@@ -1,0 +1,8 @@
+.idea
+public/.tmp
+public/assets
+public/bower_components
+node_modules
+upload
+*.iml
+config/env/production.js

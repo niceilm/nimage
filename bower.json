@@ -1,0 +1,40 @@
+{
+  "name": "nimage",
+  "version": "0.0.0",
+  "dependencies": {
+    "requirejs": "2.1.11",
+    "angular": "~1.2.16",
+    "angular-route": "1.2.16",
+    "angular-resource": "1.2.16",
+    "angular-cookies": "1.2.16",
+    "angular-sanitize": "1.2.16",
+    "angular-animate": "1.2.16",
+    "angular-i18n": "1.2.16",
+    "html5-boilerplate": "4.3.0",
+    "json3": "~3.2.4",
+    "es5-shim": "2.3.0",
+    "bootstrap": "3.1.1",
+    "jquery-ui": "~1.10.3",
+    "less.js": "1.7.0",
+    "less-elements": "*",
+    "console-text-image": "https://github.com/ohgyun/console-text-image.git",
+    "angular-http-auth": "https://github.com/niceilm/angular-http-auth.git",
+    "angular-directive": "https://github.com/niceilm/angular-directive.git",
+    "angular-filter": "https://github.com/niceilm/angular-filter.git",
+    "angular-datepicker": "1.0.3",
+    "font-awesome": "~4.0.3",
+    "angular-notify-toaster": "0.4.7",
+    "ngInfiniteScroll": "1.1.2",
+    "validator-js": "~3.10.0",
+    "lodash": "2.4.1",
+    "async": "~0.9.0",
+    "ngstorage": "~0.3.0",
+    "angular-bootstrap": "~0.11.0",
+    "angular-timer": "~1.1.5",
+    "angular-social": "~0.1.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.16",
+    "angular-scenario": "1.2.16"
+  }
+}
