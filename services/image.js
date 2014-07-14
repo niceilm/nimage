@@ -51,6 +51,7 @@ function _generateThumbnail(savePath, size, params, callback) {
     if(resizeInfo.imageAspectRatio === resizeInfo.thumbnailAspectRatio) {
       imageMagick(savePath)
         .resize(resizeWidth, resizeHeight)
+        .interlace('Partition')
         .write(newPath, writeComplete);
     } else {
       // TODO 0 으로 나누는 케이스는 따로 처리
@@ -82,6 +83,7 @@ function _generateThumbnail(savePath, size, params, callback) {
           imageMagick(savePath)
             .resize(resizeWidth, resizeHeight)
             .crop(thumbnailWidth, thumbnailHeight, cropX, cropY)
+            .interlace('Partition')
             .write(newPath, writeComplete);
         });
       });
