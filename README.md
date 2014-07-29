@@ -127,3 +127,9 @@ sudo npm install jasmine-node@1.14.2 -g
 ```
 jasmine-node test/
 ```
+
+# TODO
+- API KEY 방식으로 변경(업로드시에만 API KEY 체크)
+- 로그인 기반 변경(페이스북/이메일기반)
+- 앱생성/삭제
+- http://i.niceilm.net/dn/someappname/:hashId?type=:type&width=:width&height=:height
