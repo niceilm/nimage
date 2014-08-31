@@ -104,7 +104,7 @@ function findAndCountAll(params, callback) {
 }
 
 function uploadFromFile(file, callback) {
-  if(!(file.path && file.size && file.type.indexOf('image') > -1)) {
+  if(!(file.path && file.size)) {
     callback(new Error("파일 타입 확인"));
   }
 
