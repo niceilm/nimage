@@ -18,7 +18,7 @@ function uploadFiles(req, res, next) {
     if(err) {
       return next(err);
     }
-    res.json({result: results});
+    res.json(results);
   });
 }
 
