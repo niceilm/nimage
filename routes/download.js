@@ -15,9 +15,9 @@ function loadImage(req, res, next) {
     height: req.param('height') || 0
   }, function(err, path) {
     if(err) return next(err);
-    res.sendfile(path, function(err) {
+    res.sendFile(path, function(err) {
       if(err) {
-        res.sendfile(config.placeholderImagePath);
+        res.sendFile(config.placeholderImagePath);
       }
     });
   });

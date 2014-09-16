@@ -60,7 +60,7 @@ function _generateThumbnail(savePath, size, params, callback) {
         if(err) {
           imageMagick(savePath)
             .resize(resizeWidth, resizeHeight)
-            .crop(thumbnailWidth, thumbnailHeight, resizeWidth / 2 - thumbnailWidth / 2, resizeHeight / 2 - thumbnailHeight / 2)
+            .crop(thumbnailWidth, thumbnailHeight, convertFloatFixed(resizeWidth / 2 - thumbnailWidth / 2), convertFloatFixed(resizeHeight / 2 - thumbnailHeight / 2))
             .interlace('Partition')
             .write(newPath, writeComplete);
           return;
@@ -69,7 +69,7 @@ function _generateThumbnail(savePath, size, params, callback) {
           if(err) {
             imageMagick(savePath)
               .resize(resizeWidth, resizeHeight)
-              .crop(thumbnailWidth, thumbnailHeight, resizeWidth / 2 - thumbnailWidth / 2, resizeHeight / 2 - thumbnailHeight / 2)
+              .crop(thumbnailWidth, thumbnailHeight, convertFloatFixed(resizeWidth / 2 - thumbnailWidth / 2), convertFloatFixed(resizeHeight / 2 - thumbnailHeight / 2))
               .interlace('Partition')
               .write(newPath, writeComplete);
             return;
@@ -99,7 +99,7 @@ function _generateThumbnail(savePath, size, params, callback) {
           }
           imageMagick(savePath)
             .resize(resizeWidth, resizeHeight)
-            .crop(thumbnailWidth, thumbnailHeight, cropX, cropY)
+            .crop(thumbnailWidth, thumbnailHeight, convertFloatFixed(cropX), convertFloatFixed(cropY))
             .interlace('Partition')
             .write(newPath, writeComplete);
         });
@@ -270,4 +270,8 @@ function getFileType(format) {
   format = format.toLowerCase();
   return util.format("image/%s", format);
 
+}
+
+function convertFloatFixed(value) {
+  return parseFloat(parseFloat(value).toFixed(1));
 }
