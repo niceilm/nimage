@@ -7,12 +7,6 @@ var util = require("util");
 module.exports = function(sequelize, DataTypes) {
   var Image = sequelize.define('Image', {
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
-    hashedId: {type: DataTypes.STRING(16), get: function() {
-      return hashids.encrypt(this.getDataValue('id'));
-    }},
-    url: {type: DataTypes.STRING(1024), get: function() {
-      return util.format(config.downloadUrl, this.hashedId);
-    }},
     signature: {type: DataTypes.STRING(512)},
     name: {type: DataTypes.STRING(1024)},
     type: {type: DataTypes.STRING(20)},
@@ -23,11 +17,19 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: {type: DataTypes.DATE}
   }, {
     tableName: 'image',
+    getterMethods: {
+      hashedId: function() {
+        return hashids.encode(this.getDataValue('id'));
+      },
+      url: function() {
+        return util.format(config.downloadUrl, this.hashedId);
+      }
+    },
     classMethods: {
       associate: function(models) {
       },
       decrypt: function(source) {
-        var results = hashids.decrypt(source);
+        var results = hashids.decode(source);
         return results.length === 0 ? null : results[0];
       },
       getThumbnailPath: function(hashedId, thumbnailWidth, thumbnailHeight, type) {

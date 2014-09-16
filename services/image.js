@@ -1,3 +1,4 @@
+// TODO promise 패턴으로 변경할 예정
 var _ = require('lodash');
 var imageMagick = require('gm').subClass({ imageMagick: true });
 var validator = require('validator');
@@ -56,7 +57,23 @@ function _generateThumbnail(savePath, size, params, callback) {
     } else {
       // TODO 0 으로 나누는 케이스는 따로 처리
       cv.readImage(savePath, function(err, im) {
+        if(err) {
+          imageMagick(savePath)
+            .resize(resizeWidth, resizeHeight)
+            .crop(thumbnailWidth, thumbnailHeight, resizeWidth / 2 - thumbnailWidth / 2, resizeHeight / 2 - thumbnailHeight / 2)
+            .interlace('Partition')
+            .write(newPath, writeComplete);
+          return;
+        }
         im.detectObject(cv.FACE_CASCADE, {}, function(err, faces) {
+          if(err) {
+            imageMagick(savePath)
+              .resize(resizeWidth, resizeHeight)
+              .crop(thumbnailWidth, thumbnailHeight, resizeWidth / 2 - thumbnailWidth / 2, resizeHeight / 2 - thumbnailHeight / 2)
+              .interlace('Partition')
+              .write(newPath, writeComplete);
+            return;
+          }
           var faceX = 0;
           var faceY = 0;
           var len = faces.length;
@@ -123,7 +140,7 @@ function uploadFromFile(file, callback) {
         type: file.type
       };
 
-      Image.findOrCreate({signature: imageInfo.signature}, imageInfo).done(function(err, image, created) {
+      Image.findOrCreate({where:{signature: imageInfo.signature}, defaults:imageInfo}).done(function(err, image, created) {
         cb(err, imageInfo, image, created);
       });
     },
