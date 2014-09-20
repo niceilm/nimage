@@ -16,7 +16,7 @@ function loadImage(req, res, next) {
   }, function(err, path) {
     if(err) return next(err);
     res.sendFile(path, function(err) {
-      if(err) {
+      if(err && err.code !== 'ECONNABORT') {
         res.sendFile(config.placeholderImagePath);
       }
     });
