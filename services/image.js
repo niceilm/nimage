@@ -1,6 +1,6 @@
 // TODO promise 패턴으로 변경할 예정
 var _ = require('lodash');
-var imageMagick = require('gm').subClass({ imageMagick: true });
+var imageMagick = require('gm').subClass({imageMagick: true});
 var validator = require('validator');
 var async = require('async');
 var util = require('util');
@@ -140,7 +140,7 @@ function uploadFromFile(file, callback) {
         type: file.type
       };
 
-      Image.findOrCreate({where:{signature: imageInfo.signature}, defaults:imageInfo}).done(function(err, image, created) {
+      Image.findOrCreate({where: {signature: imageInfo.signature}, defaults: imageInfo}).done(function(err, image, created) {
         cb(err, imageInfo, image, created);
       });
     },
@@ -184,8 +184,6 @@ function uploadFromUrlWithCrop(params, callback) {
 
   if(!params.src) {
     return callback({message: '파일 주소를 정확하게 적으세요.'});
-  } else if(!validator.isURL(url)) {
-    return callback({message: "잘못된 이미지 주소를 넣었습니다."});
   }
 
   imageMagick(params.src).crop(params.cropwidth, params.cropheight, params.x, params.y).write(tempFilePath, function(err) {

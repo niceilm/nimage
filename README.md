@@ -8,6 +8,7 @@ brew install imagemagick
 brew tap homebrew/science
 brew install opencv
 npm install -g supervisor
+npm install -g gulp
 ```
 ### mysql
 ```
@@ -20,10 +21,12 @@ create database image;
 git clone 
 cd nimage
 npm install
+bower install
 ```
 
 ## 개발환경
 ```
+gulp
 //  DB 초기화 할때만 사용(주의! 데이터베이스 내용 초기화됨)
 DBSYNC=true supervisor -i public/ app.js
 supervisor -i public/ app.js
@@ -93,7 +96,7 @@ name=file
 ### POST http://i.niceilm.net/up/crop
 ```
 // parameters
-{width:0, height:0, x:0, y:0, url:""}
+{cropwidth:0, cropheight:0, x:0, y:0, src:""}
 
 // returns
 {url:"http://i.niceilm.net/dn/:hashedId", width:300, height:200, size:3000, type:'jpeg'}
